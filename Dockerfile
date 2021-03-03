@@ -1,5 +1,5 @@
 # build stage
-FROM golang as builder
+FROM golang:latest
 
 ENV GO111MODULE=on
 
@@ -21,11 +21,11 @@ FROM alpine:latest
 
 RUN apk add --no-cache ca-certificates openssl
 
-COPY --from=builder /app/sphinx-tribes /app/
-COPY --from=builder /app/config.json /config.json
-COPY --from=builder /app/plugins/auth/authhttp/http.json /plugins/auth/authhttp/http.json
+COPY --from=0 /app/n2n2-tribes /app/
+COPY --from=0 /app/config.json /config.json
+COPY --from=0 /app/plugins/auth/authhttp/http.json /plugins/auth/authhttp/http.json
 
 RUN ls app
 
 EXPOSE 1883 5002
-ENTRYPOINT ["/app/sphinx-tribes"]
+ENTRYPOINT ["/app/n2n2-tribes"]
