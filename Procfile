@@ -1,1 +1,1 @@
-web: sphinx-tribes
+web: n2n2-tribes

@@ -1,4 +1,4 @@
-module github.com/stakwork/sphinx-tribes
+module github.com/n2n2dev/n2n2-tribes
 
 go 1.12
 
