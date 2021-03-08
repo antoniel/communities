@@ -5,13 +5,13 @@ locals {
   # env    = ["stag", "prod"]
   region = "us-east-1"
 
-  # git_conn_arn = "arn:aws:codestar-connections:us-east-1:724178372978:connection/8b658c00-d2c4-470f-98db-529ca8ff67f3"
-  # git_org      = "portfolioinsider"
-  # git_repo     = format("%s/%s", local.git_org, "pi-quodd-socket")
-  # git_branch = {
-  #   prod = "main"
-  #   stag = "staging"
-  # }
+  git_conn_arn = "arn:aws:codestar-connections:us-east-1:533620758524:connection/803285fa-ac22-4ded-87d2-d58fbcb41685"
+  git_org      = "n2n2dev"
+  git_repo     = format("%s/%s", local.git_org, "n2n2-tribes")
+  git_branch = {
+    prod = "main"
+    stag = "staging"
+  }
 
   common_tags = {
     region    = local.region
