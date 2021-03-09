@@ -69,7 +69,13 @@ services:
       - "traefik.tcp.routers.tribes.service=tribes"
     restart: on-failure
     environment:
-      - DATABASE_URL=$DATABASE_URL
+      - RDS_HOSTNAME=$RDS_HOSTNAME
+      - RDS_PORT=$RDS_PORT
+      - RDS_DB_NAME=$RDS_DB_NAME
+      - RDS_USERNAME=$RDS_USERNAME
+      - RDS_PASSWORD=$RDS_PASSWORD
+      - JWT_KEY=$JWT_KEY
+      - PRIV_KEY=$PRIV_KEY
       - PODCAST_INDEX_SECRET=$PODCAST_INDEX_SECRET
       - PODCAST_INDEX_KEY=$PODCAST_INDEX_KEY
     ulimits:
