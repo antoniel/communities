@@ -51,11 +51,6 @@ LIMIT 12;
 
 -- plainto_tsquery is another way
 
-
-
-
-
-
 CREATE TABLE bots (
   uuid TEXT NOT NULL PRIMARY KEY,
   owner_pub_key TEXT NOT NULL,
