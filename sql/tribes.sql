@@ -43,7 +43,7 @@ WHERE tsv @@ q;
 
 -- rank
 
-SELECT name, id, description, ts_rank(tsv, q) as rank
+SELECT name, uuid, description, ts_rank(tsv, q) as rank
 FROM tribes, to_tsquery('anothe') q
 WHERE tsv @@ q
 ORDER BY rank DESC
