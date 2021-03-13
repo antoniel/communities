@@ -70,14 +70,14 @@ services:
     restart: on-failure
     environment:
       - RDS_HOSTNAME=$RDS_HOSTNAME
-      # - RDS_PORT=$RDS_PORT
-      # - RDS_DB_NAME=$RDS_DB_NAME
-      # - RDS_USERNAME=$RDS_USERNAME
-      # - RDS_PASSWORD=$RDS_PASSWORD
-      # - JWT_KEY=$JWT_KEY
-      # - PRIV_KEY=$PRIV_KEY
-      # - PODCAST_INDEX_SECRET=$PODCAST_INDEX_SECRET
-      # - PODCAST_INDEX_KEY=$PODCAST_INDEX_KEY
+      - RDS_PORT=$RDS_PORT
+      - RDS_DB_NAME=$RDS_DB_NAME
+      - RDS_USERNAME=$RDS_USERNAME
+      - RDS_PASSWORD=$RDS_PASSWORD
+      - JWT_KEY=$JWT_KEY
+      - PRIV_KEY=$PRIV_KEY
+      - PODCAST_INDEX_SECRET=$PODCAST_INDEX_SECRET
+      - PODCAST_INDEX_KEY=$PODCAST_INDEX_KEY
     ulimits:
       nproc: 65535
       nofile:
