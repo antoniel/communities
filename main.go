@@ -18,7 +18,7 @@ func main() {
 
 	err = godotenv.Load()
 	if err != nil {
-		fmt.Println("no .env file")
+		fmt.Println("main: no .env file")
 	}
 
 	mqttBroker, err = NewBroker()
