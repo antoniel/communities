@@ -9,15 +9,10 @@
   "router": "",
   "wsPort": "1880",
   "wsPath": "/mqtt",
-  "wsTLS": true,
-  "tlsPort": "8883",
-  "tlsHost": "0.0.0.0",
-  "tlsInfo": {
-    "verify": false,
-    "caFile": "",
-    "certFile": "",
-    "keyFile": ""
-  },
+  "wsTLS": false,
+  "tlsPort": "",
+  "tlsHost": "",
+  "tlsInfo": {},
   "plugins": {
     "auth": "authhttp"
   }
