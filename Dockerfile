@@ -25,5 +25,5 @@ COPY --from=0 /app/n2n2-tribes /app/
 COPY --from=0 /app/config.json /config.json
 COPY --from=0 /app/plugins/auth/authhttp/http.json /plugins/auth/authhttp/http.json
 
-EXPOSE 1883 5002
+EXPOSE 1883 5002 5000
 ENTRYPOINT ["/app/n2n2-tribes"]
