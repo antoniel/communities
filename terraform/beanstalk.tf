@@ -1,5 +1,69 @@
 
 # pi-quodd-socket
+// LOAD BALANCER
+//arn:aws:acm:us-east-1:533620758524:certificate/b8bff003-feaf-469c-b3db-7eca8c2d9f29
+
+resource "aws_lb" "tribes_lb" {
+  name     = "tribes-load-balancer"
+  internal = false
+
+  # security_groups = ["sg-07f4a446b97db9116", "sg-031f44989a0737c58"]
+  subnets = data.aws_subnet_ids.tribes.ids
+
+  # idle_timeout               = 60
+  # enable_deletion_protection = false
+
+  # access_logs {
+  #   bucket  = "ioi18-logs"
+  #   prefix  = "elb"
+  #   enabled = true
+  # }
+}
+
+resource "aws_lb_listener" "tribes_80" {
+  load_balancer_arn = aws_lb.tribes_lb.arn
+  port              = 80
+  protocol          = "HTTP"
+
+  default_action {
+    target_group_arn = aws_lb_target_group.tribes.arn
+    type             = "forward"
+  }
+}
+
+resource "aws_lb_listener" "tribes_443" {
+  load_balancer_arn = aws_lb.tribes_lb.arn
+  port              = 443
+  protocol          = "HTTPS"
+  certificate_arn   = "arn:aws:acm:us-east-1:533620758524:certificate/b8bff003-feaf-469c-b3db-7eca8c2d9f29"
+  ssl_policy        = "ELBSecurityPolicy-TLS-1-2-Ext-2018-06"
+
+  default_action {
+    target_group_arn = aws_lb_target_group.tribes.arn
+    type             = "forward"
+  }
+}
+
+resource "aws_lb_target_group" "tribes" {
+  name     = "tribes"
+  port     = 80
+  protocol = "HTTP"
+  vpc_id   = var.vpc_id
+  # target_type = "instance"
+
+  # deregistration_delay = 60
+  # slow_start           = 0
+
+  # health_check {
+  #   path                = "/httpd_alived"
+  #   interval            = 6
+  #   healthy_threshold   = 3
+  #   unhealthy_threshold = 2
+  #   matcher             = "200"
+  # }
+}
+//
+
 resource "aws_elastic_beanstalk_application" "fetch" {
   name        = format("%s-%s", local.org, local.name)
   description = ""
@@ -80,6 +144,22 @@ resource "aws_elastic_beanstalk_environment" "fetch" {
   # }
 
   # loadbalancer
+  # setting {
+  #   namespace = "aws:elasticbeanstalk:environment"
+  #   name      = "EnvironmentType"
+  #   value     = "LoadBalanced"
+  # }
+  # setting {
+  #   namespace = "aws:elasticbeanstalk:environment"
+  #   name      = "LoadBalancerType"
+  #   value     = "application"
+  # }
+  # setting {
+  #   namespace = "aws:elasticbeanstalk:environment"
+  #   name      = "LoadBalancerIsShared"
+  #   value     = false
+  # }
+
   setting {
     namespace = "aws:elasticbeanstalk:environment"
     name      = "EnvironmentType"
@@ -93,7 +173,13 @@ resource "aws_elastic_beanstalk_environment" "fetch" {
   setting {
     namespace = "aws:elasticbeanstalk:environment"
     name      = "LoadBalancerIsShared"
-    value     = false
+    value     = true
+  }
+
+  setting {
+    namespace = "aws:elbv2:loadbalancer"
+    name      = "SharedLoadBalancer"
+    value     = aws_lb.tribes_lb.arn
   }
 
   # Add environment variables if provided
