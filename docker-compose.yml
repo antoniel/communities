@@ -74,7 +74,7 @@ services:
       - "traefik.tcp.routers.tribes.rule=HostSNI(`tribes-test.n2n2.chat`)"
       - "traefik.tcp.routers.tribes.entrypoints=mqttsecure"
       - "traefik.tcp.services.tribes.loadbalancer.server.port=1883"
-      # - "traefik.tcp.routers.tribes.tls=true"
+      - "traefik.tcp.routers.tribes.tls=false"
       # - "traefik.tcp.routers.tribes.tls.certresolver=myresolver"
       - "traefik.tcp.routers.tribes.service=tribes"
     restart: on-failure
