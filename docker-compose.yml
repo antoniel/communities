@@ -59,7 +59,7 @@ services:
       - "--log.level=DEBUG"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.tribes.rule=Host(`localhost`)"
+      - "traefik.http.routers.tribes.rule=Host(`tribes.n2n2.chat`)"
       - "traefik.http.routers.tribes.entrypoints=web"
       - "traefik.http.services.tribes.loadbalancer.server.port=$PORT"
 
