@@ -62,6 +62,7 @@ resource "aws_lb_target_group" "tribes" {
   #   matcher             = "200"
   # }
 }
+
 //
 
 resource "aws_elastic_beanstalk_application" "fetch" {
@@ -197,6 +198,12 @@ resource "aws_elastic_beanstalk_environment" "fetch" {
     { env = local.env[count.index] },
     local.common_tags
   )
+}
+
+resource "aws_lb_target_group_attachment" "tribes" {
+  target_group_arn = aws_lb_target_group.tribes.arn
+  target_id        = aws_elastic_beanstalk_environment.fetch[0].instances[0]
+  port             = 80
 }
 
 variable "env_vars" {

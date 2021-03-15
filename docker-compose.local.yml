@@ -60,7 +60,7 @@ services:
       - reverse-proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.tribes.rule=Host(`tribes.n2n2.chat`)"
+      - "traefik.http.routers.tribes.rule=Host(`127.0.0.1`)"
       - "traefik.http.routers.tribes.entrypoints=web"
       - "traefik.http.services.tribes.loadbalancer.server.port=$PORT"
 
