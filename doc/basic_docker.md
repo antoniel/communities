@@ -6,6 +6,8 @@ docker run --env-file .env n2n2-tribes
 docker run -p 5000:5000 --env-file .env n2n2-tribes
 
 docker exec -it “container-id” bash
+
+docker-compose build
 ```
 
 ```
