@@ -17,7 +17,7 @@ services:
     volumes:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock
-      # - /home/ec2-user/sphinx-deploy/traefik.yaml:/etc/traefik/traefik.yaml
+      - ./docker/traefik.yaml:/etc/traefik/traefik.yaml
       # - /home/ec2-user/letsencrypt:/letsencrypt
     environment:
       - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
@@ -55,13 +55,21 @@ services:
     depends_on:
       # - auth
       - reverse-proxy
+    command:
+      - "--log.level=DEBUG"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.tribes.rule=Host(`tribes.n2n2.chat`)"
-      - "traefik.http.services.tribes.loadbalancer.server.port=5002"
-      - "traefik.http.routers.tribes.tls=true"
-      - "traefik.http.routers.tribes.tls.certresolver=myresolver"
-      - "traefik.http.routers.tribes.entrypoints=websecure"
+      - "traefik.http.routers.tribes.rule=Host(`localhost`)"
+      - "traefik.http.routers.tribes.entrypoints=web"
+      - "traefik.http.services.tribes.loadbalancer.server.port=$PORT"
+
+      # - "traefik.http.routers.tribes.rule=Host(`tribes.n2n2.chat`)"
+      # - "traefik.http.routers.tribes.entrypoints=web"
+      # - "traefik.http.services.tribes.loadbalancer.server.port=5000"
+      # - "traefik.http.routers.tribes.tls=false"
+      # - "traefik.http.routers.tribes.tls.certresolver=myresolver"
+      # - "traefik.http.routers.tribes.entrypoints=websecure"
+
       - "traefik.tcp.routers.tribes.rule=HostSNI(`tribes.n2n2.chat`)"
       - "traefik.tcp.services.tribes.loadbalancer.server.port=1883"
       - "traefik.tcp.routers.tribes.tls=true"

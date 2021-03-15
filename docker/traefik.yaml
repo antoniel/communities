@@ -13,7 +13,6 @@ entryPoints:
 
   mqttsecure:
     address: ":8883"
-
-certificatesResolvers:
-  myresolver:
-    {YOUR_CERTIFICATE_RESOLVER_HERE}
+# certificatesResolvers:
+#   myresolver:
+#     {YOUR_CERTIFICATE_RESOLVER_HERE}
