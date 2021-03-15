@@ -70,6 +70,7 @@ services:
       - "traefik.tcp.routers.tribes.service=tribes"
     restart: on-failure
     environment:
+      - PORT=$PORT
       - RDS_HOSTNAME=$RDS_HOSTNAME
       - RDS_PORT=$RDS_PORT
       - RDS_DB_NAME=$RDS_DB_NAME
