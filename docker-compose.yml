@@ -71,7 +71,8 @@ services:
       # - "traefik.http.routers.tribes.tls.certresolver=myresolver"
       # - "traefik.http.routers.tribes.entrypoints=websecure"
 
-      - "traefik.tcp.routers.tribes.rule=HostSNI(`tribes.n2n2.chat`)"
+      # - "traefik.tcp.routers.tribes.rule=HostSNI(`tribes.n2n2.chat`)"
+      - "traefik.tcp.routers.tribes.rule=HostSNI(`*`)"
       - "traefik.tcp.routers.tribes.entrypoints=mqttsecure"
       - "traefik.tcp.services.tribes.loadbalancer.server.port=1883"
       - "traefik.tcp.routers.tribes.tls=false"
