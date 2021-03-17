@@ -1,7 +1,15 @@
 # mqtt communication
 
 ## Tools
+
+```
 brew install hivemq/mqtt-cli/mqtt-cli
+```
+
+```
+mqtt test -h 0.0.0.0 -p 1883
+mqtt test -h tribes.n2n2.chat -p 8883
+```
 
 ## Resources
 [Mosquitto](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-centos-)
