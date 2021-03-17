@@ -61,6 +61,7 @@ services:
       - "traefik.http.routers.tribes.tls=true"
       - "traefik.http.routers.tribes.tls.certresolver=myresolver"
       - "traefik.http.routers.tribes.entrypoints=websecure"
+      
       - "traefik.tcp.routers.tribes.rule=HostSNI(`tribes.sphinx.chat`)"
       - "traefik.tcp.services.tribes.loadbalancer.server.port=1883"
       - "traefik.tcp.routers.tribes.tls=true"

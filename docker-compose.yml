@@ -15,13 +15,12 @@ services:
       - 8080:8080
       # entrypoints
       - 443:443
-      # - 1883:1883 # extra
       - 8883:8883
     volumes:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock
       - ./docker/traefik.yaml:/etc/traefik/traefik.yaml
-      # - /home/ec2-user/letsencrypt:/letsencrypt
+      - ./docker/letsencrypt:/letsencrypt
     environment:
       - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
       - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
@@ -60,23 +59,27 @@ services:
       - reverse-proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.tribes.rule=Host(`tribes.n2n2.chat`)"
-      - "traefik.http.routers.tribes.entrypoints=web"
-      - "traefik.http.services.tribes.loadbalancer.server.port=$PORT"
 
+      # # web : insecure
       # - "traefik.http.routers.tribes.rule=Host(`tribes.n2n2.chat`)"
+      # - "traefik.http.services.tribes.loadbalancer.server.port=$PORT"
       # - "traefik.http.routers.tribes.entrypoints=web"
-      # - "traefik.http.services.tribes.loadbalancer.server.port=5000"
-      # - "traefik.http.routers.tribes.tls=false"
-      # - "traefik.http.routers.tribes.tls.certresolver=myresolver"
-      # - "traefik.http.routers.tribes.entrypoints=websecure"
 
-      # - "traefik.tcp.routers.tribes.rule=HostSNI(`tribes.n2n2.chat`)"
-      - "traefik.tcp.routers.tribes.rule=HostSNI(`*`)"
+      # web : secure
+      - "traefik.http.routers.tribes.rule=Host(`tribes.n2n2.chat`)"
+      - "traefik.http.services.tribes.loadbalancer.server.port=$PORT"
+      - "traefik.http.routers.tribes.tls=true"
+      - "traefik.http.routers.tribes.tls.certresolver=myresolver"
+      - "traefik.http.routers.tribes.entrypoints=websecure"
+
+      # mqtt : in secure
+      - "traefik.tcp.routers.tribes.rule=HostSNI(`tribes.n2n2.chat`)"
+      # - "traefik.tcp.routers.tribes.rule=HostSNI(`*`)"
       - "traefik.tcp.routers.tribes.entrypoints=mqttsecure"
       - "traefik.tcp.services.tribes.loadbalancer.server.port=1883"
       - "traefik.tcp.routers.tribes.tls=false"
-      # # - "traefik.tcp.routers.tribes.tls.certresolver=myresolver"
+      # - "traefik.tcp.routers.tribes.tls=true"
+      - "traefik.tcp.routers.tribes.tls.certresolver=myresolver"
       - "traefik.tcp.routers.tribes.service=tribes"
     restart: on-failure
     environment:

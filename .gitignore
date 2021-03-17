@@ -10,3 +10,6 @@ notes.md
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 _/
+
+docker/sphinx
+doc/sphinx

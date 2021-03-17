@@ -11,11 +11,14 @@ entryPoints:
   websecure:
     address: ":443"
 
-  mqtt:
-    address: ":1883"
-
   mqttsecure:
     address: ":8883"
-# certificatesResolvers:
-#   myresolver:
-#     {YOUR_CERTIFICATE_RESOLVER_HERE}
+
+certificatesResolvers:
+  myresolver:
+    acme:
+      email: ci@n2n2.co
+      storage: /letsencrypt/acme.json
+      caServer: https://acme-v02.api.letsencrypt.org/directory
+      dnsChallenge:
+        provider: route53
