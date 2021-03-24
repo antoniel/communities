@@ -8,7 +8,7 @@ import moment from "moment";
 const DEFAULT_DOMAIN = "n2n2.chat";
 
 function makeQR(uuid: string) {
-  return `n2n2.chat://?action=tribe&uuid=${uuid}&host=${window.location.hostname}`;
+  return `${DEFAULT_DOMAIN}://?action=tribe&uuid=${uuid}&host=${window.location.hostname}`;
 }
 
 export default function Tribe({
