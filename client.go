@@ -76,7 +76,7 @@ CLIENT connects
 func signTimestamp() (string, string) {
 	err := godotenv.Load()
 	if err != nil {
-		fmt.Println("no .env file")
+		fmt.Println("signTimestamp: no .env file")
 	}
 	privKey := os.Getenv("PRIV_KEY")
 	thePrivKey, err := base64.URLEncoding.DecodeString(privKey)

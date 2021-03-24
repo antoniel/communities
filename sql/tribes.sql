@@ -19,7 +19,8 @@ CREATE TABLE tribes (
   private boolean,
   deleted boolean,
   app_url TEXT,
-  last_active timestamptz,
+  feed_url TEXT,
+  last_active BIGINT,
   bots TEXT,
   owner_route_hint TEXT,
 );
@@ -43,18 +44,13 @@ WHERE tsv @@ q;
 
 -- rank
 
-SELECT name, id, description, ts_rank(tsv, q) as rank
+SELECT name, uuid, description, ts_rank(tsv, q) as rank
 FROM tribes, to_tsquery('anothe') q
 WHERE tsv @@ q
 ORDER BY rank DESC
 LIMIT 12;
 
 -- plainto_tsquery is another way
-
-
-
-
-
 
 CREATE TABLE bots (
   uuid TEXT NOT NULL PRIMARY KEY,

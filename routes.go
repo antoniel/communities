@@ -154,6 +154,8 @@ func createOrEditTribe(w http.ResponseWriter, r *http.Request) {
 	tribe.OwnerPubKey = extractedPubkey
 	tribe.Updated = &now
 
+	tribe.LastActive = time.Now().Unix()
+
 	DB.createOrEditTribe(tribe)
 
 	w.WriteHeader(http.StatusOK)

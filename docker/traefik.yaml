@@ -16,4 +16,9 @@ entryPoints:
 
 certificatesResolvers:
   myresolver:
-    {YOUR_CERTIFICATE_RESOLVER_HERE}
+    acme:
+      email: ci@n2n2.co
+      storage: /letsencrypt/acme.json
+      caServer: https://acme-v02.api.letsencrypt.org/directory
+      dnsChallenge:
+        provider: route53

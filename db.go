@@ -27,6 +27,7 @@ func initDB() {
 		rdsPassword := os.Getenv("RDS_PASSWORD")
 		dbURL = fmt.Sprintf("postgres://%s:%s@%s:%s/%s", rdsUsername, rdsPassword, rdsHost, rdsPort, rdsDbName)
 	}
+
 	if dbURL == "" {
 		panic("DB env vars not found")
 	}
@@ -37,7 +38,8 @@ func initDB() {
 		panic(err)
 	}
 	DB.db = db
-	fmt.Println("db connected")
+
+	fmt.Println("db connected", dbURL)
 }
 
 var updatables = []string{
