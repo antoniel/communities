@@ -20,7 +20,7 @@ CREATE TABLE tribes (
   deleted boolean,
   app_url TEXT,
   feed_url TEXT,
-  last_active timestamptz,
+  last_active BIGINT,
   bots TEXT,
   owner_route_hint TEXT,
 );
