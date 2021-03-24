@@ -66,14 +66,14 @@ services:
       # - "traefik.http.routers.tribes.entrypoints=web"
 
       # web : secure
-      - "traefik.http.routers.tribes.rule=Host(`tribes.n2n2.chat`)"
+      - "traefik.http.routers.tribes.rule=Host(`$TRIBES_HOST`)"
       - "traefik.http.services.tribes.loadbalancer.server.port=$PORT"
       - "traefik.http.routers.tribes.tls=true"
       - "traefik.http.routers.tribes.tls.certresolver=myresolver"
       - "traefik.http.routers.tribes.entrypoints=websecure"
 
       # mqtt : in secure
-      - "traefik.tcp.routers.tribes.rule=HostSNI(`tribes.n2n2.chat`)"
+      - "traefik.tcp.routers.tribes.rule=HostSNI(`$TRIBES_HOST`)"
       # - "traefik.tcp.routers.tribes.rule=HostSNI(`*`)"
       - "traefik.tcp.services.tribes.loadbalancer.server.port=1883"
       - "traefik.tcp.routers.tribes.tls=true"
@@ -83,6 +83,7 @@ services:
       - "traefik.tcp.routers.tribes.service=tribes"
     restart: on-failure
     environment:
+      - TRIBES_HOST=$TRIBES_HOST
       - PORT=$PORT
       - RDS_HOSTNAME=$RDS_HOSTNAME
       - RDS_PORT=$RDS_PORT
