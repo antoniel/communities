@@ -15,7 +15,7 @@
     create: yes
     state: present
     regexp: "^TRIBES_HOST"
-    line: "TRIBES_HOST={{ inventory_hostname }}.n2n2.chat"
+    line: "TRIBES_HOST={{ inventory_hostname }}"
   become: yes
 
 - name: Set AWS_ACCESS_KEY_ID

@@ -68,7 +68,7 @@
 - name: Add a host alias that we reach through a tunnel (Ansible >= 2.0)
   add_host:
     # name: "n2n2-node"
-    name: "{{ config.instance_name }}.n2n2.chat"
+    name: "{{ config.instance_name }}"
     hostname: "n2n2"
     groups: relays
     ansible_host: "{{ instance_eip.public_ip }}"
@@ -83,7 +83,7 @@
   community.aws.route53:
     state: present
     zone: n2n2.chat
-    record: "{{ config.instance_name }}.n2n2.chat"
+    record: "{{ config.instance_name }}"
     type: A
     ttl: 300
     value: "{{ instance_eip.public_ip }}"

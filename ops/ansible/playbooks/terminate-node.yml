@@ -38,7 +38,7 @@
   route53:
     state: get
     zone: n2n2.chat
-    record: "{{ config.instance_name }}.n2n2.chat"
+    record: "{{ config.instance_name }}"
     type: A
   register: rec
 
@@ -49,7 +49,7 @@
   route53:
     state: absent
     zone: n2n2.chat
-    record: "{{ config.instance_name }}.n2n2.chat"
+    record: "{{ config.instance_name }}"
     type: "{{ rec.set.Type }}"
     ttl: "{{ rec.set.TTL }}"
     value: "{{ rec.set.ResourceRecords[0].Value }}"
