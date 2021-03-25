@@ -5,7 +5,7 @@ ENV GO111MODULE=on
 
 WORKDIR /app
 
-RUN cd frontend/app && npm install && npm run build && cd /app
+RUN cd /app/frontend/app && npm install && npm run build && cd /app
 
 COPY go.mod .
 COPY go.sum .
