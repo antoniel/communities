@@ -196,15 +196,3 @@
 - name: Start container
   shell: "cd /relay && docker-compose up -d"
   become: yes
-
-- name: Timeout
-  pause:
-    seconds: 5
-
-- name: Get connection_string.txt
-  shell: "docker exec -it $(docker ps --latest --quiet) cat /relay/connection_string.txt"
-  register: shell_result
-  become: yes
-
-- name: Get connection_string.txt
-  debug: var=shell_result.stdout_lines
