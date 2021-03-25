@@ -14,8 +14,6 @@ RUN go mod download
 
 COPY . .
 
-RUN cd frontend/app && npm install && npm run build && cd /app
-
 RUN CGO_ENABLED=0 go build
 
 # final stage
