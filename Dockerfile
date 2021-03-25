@@ -5,8 +5,6 @@ ENV GO111MODULE=on
 
 WORKDIR /app
 
-RUN cd /app/frontend/app && npm install && npm run build && cd /app
-
 COPY go.mod .
 COPY go.sum .
 COPY config.json .
@@ -15,6 +13,8 @@ COPY plugins/auth/authhttp/http.json .
 RUN go mod download
 
 COPY . .
+
+RUN cd frontend/app && npm install && npm run build && cd /app
 
 RUN CGO_ENABLED=0 go build
 
