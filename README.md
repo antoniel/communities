@@ -18,5 +18,17 @@ sudo -s
 docker exec -it $(docker ps --latest --quiet) bash
 ```
 
+
+## Database
+```
+truncate table tribes;
+```
+
+## Logs
+
+```
+docker ps -q | xargs -L 1 docker logs -f
+```
+
 [Tribes](doc/tribes.md)
 

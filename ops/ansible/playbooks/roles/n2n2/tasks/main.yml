@@ -81,6 +81,26 @@
     line: "RDS_DB_NAME={{ tribes_db_name }}"
   become: yes
 
+- name: Set RDS_DB_NAME
+  lineinfile:
+    dest: /etc/environment
+    create: yes
+    state: present
+    regexp: "^RDS_DB_NAME"
+    line: "RDS_DB_NAME={{ tribes_db_name }}"
+  become: yes
+  when: not hostvars[inventory_hostname].testnet
+
+- name: Set RDS_DB_NAME
+  lineinfile:
+    dest: /etc/environment
+    create: yes
+    state: present
+    regexp: "^RDS_DB_NAME"
+    line: "RDS_DB_NAME={{ tribes_db_name_staging }}"
+  become: yes
+  when: hostvars[inventory_hostname].testnet
+
 - name: Set RDS_USERNAME
   lineinfile:
     dest: /etc/environment
