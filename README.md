@@ -13,7 +13,7 @@ npm run build
 
 ## Bash
 ```
-ssh -i ~/.ssh/n2n2 ubuntu@tribes-1.n2n2.chat
+ssh -i ~/.ssh/n2n2 ubuntu@tribes-staging.n2n2.chat
 sudo -s
 docker exec -it $(docker ps --latest --quiet) bash
 ```
