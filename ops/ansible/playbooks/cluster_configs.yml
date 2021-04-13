@@ -1,8 +1,12 @@
 ---
 cluster_configs:
+  # - {
+  #     instance_type: "t3.large",
+  #     instance_name: "tribes-staging.n2n2.chat",
+  #     testnet: true,
+  #   }
   - {
       instance_type: "t3.large",
-      instance_name: "tribes-staging.n2n2.chat",
-      testnet: true,
+      instance_name: "tribes.n2n2.chat",
+      testnet: false,
     }
-  # - { instance_type: "t3.large", instance_name: "tribes.n2n2.chat", testnet: false }

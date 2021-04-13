@@ -203,7 +203,19 @@
     force=yes
     update=yes
   become: yes
+  when: not hostvars[inventory_hostname].testnet
+
+- name: clone a private repository
+  git: >
+    repo=git@github.com:n2n2dev/n2n2-tribes.git
+    key_file=/root/.ssh/id_rsa.github
+    dest={{ n2n2_path }}
+    version={{ git_branch_staging }}
+    force=yes
+    update=yes
+  become: yes
+  when: hostvars[inventory_hostname].testnet
 
 - name: Start container
-  shell: "cd /relay && docker-compose up -d"
+  shell: "cd {{ n2n2_path }} && docker-compose up -d"
   become: yes

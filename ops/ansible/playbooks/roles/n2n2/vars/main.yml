@@ -1,3 +1,4 @@
 ---
-n2n2_path: "/relay"
-git_branch: "staging"
+n2n2_path: "/tribes"
+git_branch: "main"
+git_branch_staging: "staging"
