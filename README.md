@@ -30,5 +30,14 @@ truncate table tribes;
 docker ps -q | xargs -L 1 docker logs -f
 ```
 
+## Private Key (PRIV_KEY)
+
+
+base64 n2n2-0
+base64 -d n2n2-0.encoded 
+```
+docker ps -q | xargs -L 1 docker logs -f
+```
+
 [Tribes](doc/tribes.md)
 
