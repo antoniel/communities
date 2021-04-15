@@ -1,0 +1,4 @@
+---
+n2n2_path: "/tribes"
+git_branch: "main"
+git_branch_staging: "staging"

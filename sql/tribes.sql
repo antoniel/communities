@@ -22,7 +22,7 @@ CREATE TABLE tribes (
   feed_url TEXT,
   last_active BIGINT,
   bots TEXT,
-  owner_route_hint TEXT,
+  owner_route_hint TEXT
 );
 
 -- for searching 

@@ -22,6 +22,7 @@ FROM alpine:latest
 RUN apk add --no-cache ca-certificates openssl
 
 COPY --from=0 /app/n2n2-tribes /app/
+COPY --from=0 /app/frontend /app/frontend
 COPY --from=0 /app/config.json /config.json
 COPY --from=0 /app/plugins/auth/authhttp/http.json /plugins/auth/authhttp/http.json
 
