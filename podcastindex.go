@@ -27,7 +27,7 @@ func makeHeaders() map[string]string {
 	h.Write([]byte(s))
 	bs := h.Sum(nil)
 	return map[string]string{
-		"User-Agent":    "golang",
+		"User-Agent":    "n2n2",
 		"X-Auth-Date":   ts,
 		"X-Auth-Key":    apiKey,
 		"Authorization": fmt.Sprintf("%x", bs),

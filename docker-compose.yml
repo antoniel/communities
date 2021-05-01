@@ -94,8 +94,8 @@ services:
 
       - PRIV_KEY=$PRIV_KEY
 
-      - PODCAST_INDEX_SECRET=$PODCAST_INDEX_SECRET
       - PODCAST_INDEX_KEY=$PODCAST_INDEX_KEY
+      - PODCAST_INDEX_SECRET=$PODCAST_INDEX_SECRET
     ulimits:
       nproc: 65535
       nofile:
