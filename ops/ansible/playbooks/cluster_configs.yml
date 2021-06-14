@@ -8,5 +8,6 @@ cluster_configs:
   - {
       instance_type: "t3.small",
       instance_name: "tribes.n2n2.chat",
+      instance_name_mask: "communities.n2n2.chat",
       testnet: false,
     }
