@@ -55,6 +55,11 @@ services:
     container_name: tribes
     # image: n2n2-tribes
     build: .
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+
     depends_on:
       # - auth
       - reverse-proxy

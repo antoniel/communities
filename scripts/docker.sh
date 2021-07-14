@@ -12,7 +12,7 @@ do
             $cmd
             ;;
         "logs")
-            cmd="docker logs --follow tribes"
+            cmd="docker-compose logs -f --tail 100"
             echo $cmd
             $cmd            
             ;;
