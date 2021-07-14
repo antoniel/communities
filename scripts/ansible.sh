@@ -8,13 +8,13 @@ function_menu_ssh () {
     do
         case $opt in
             "communities")
-                cmd="ssh -i ~/.ssh/playent.pem ubuntu@communities.n2n2.chat"
+                cmd="ssh -i ~/.ssh/n2n2 ubuntu@communities.n2n2.chat"
                 echo $cmd
                 $cmd      
                 ;;
 
             "tribes")
-                cmd="ssh -i ~/.ssh/playent.pem ubuntu@tribes.n2n2.chat"
+                cmd="ssh -i ~/.ssh/n2n2 ubuntu@tribes.n2n2.chat"
                 echo $cmd
                 $cmd      
                 ;;
