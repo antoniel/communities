@@ -2,17 +2,12 @@
 # Bash Menu Script Example
 
 PS3='Please enter your choice: '
-options=("bash" "reset" "logs" "kill" "quit")
+options=("bash" "logs" "kill" "reset" "compose" "quit")
 select opt in "${options[@]}"
 do
     case $opt in
         "bash")            
             cmd="docker exec -it $(docker ps --latest --quiet) bash"
-            echo $cmd
-            $cmd
-            ;;
-        "reset")
-            cmd="docker system prune -a"
             echo $cmd
             $cmd
             ;;
@@ -26,7 +21,16 @@ do
             echo $cmd
             $cmd            
             ;;
-
+        "reset")
+            cmd="docker system prune -a"
+            echo $cmd
+            $cmd
+            ;;
+        "compose")
+            cmd="docker-compose up -d"
+            echo $cmd
+            $cmd
+            ;;
         "quit")
             break
             ;;
