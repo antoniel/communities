@@ -1,6 +1,11 @@
-# n2n2-tribes
+# n2n2-communties
 
-![Tribes](doc/img/tribes.jpg)
+This is a forked code from the Sphinx protocal. 
+
+Decentralized message broker for public groups in N2N2. Anyone can run a N2N2-Community server, to route group messages.
+
+N2N2-Community clients can be N2N2-relay nodes. 
+
 
 [How To Deploy](ops/ansible/README.md)
 
