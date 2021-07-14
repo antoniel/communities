@@ -7,7 +7,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "bash")            
-            cmd="docker exec -it $(docker ps --latest --quiet) bash"
+            cmd="docker exec -it tribes ssh"
             echo $cmd
             $cmd
             ;;
