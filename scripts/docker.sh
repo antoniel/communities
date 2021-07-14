@@ -17,7 +17,7 @@ do
             $cmd
             ;;
         "logs")
-            cmd="docker ps -q | xargs -L 1 docker logs -f"
+            cmd="docker logs --follow tribes"
             echo $cmd
             $cmd            
             ;;

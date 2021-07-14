@@ -52,6 +52,7 @@ services:
   #     - OAUTH_TIMEOUT=$OAUTH_TIMEOUT
 
   tribes:
+    container_name: tribes
     # image: n2n2-tribes
     build: .
     depends_on:
