@@ -3,6 +3,7 @@
 ```
 ssh -i ~/.ssh/n2n2 ubuntu@tribes-staging.n2n2.chat
 ssh -i ~/.ssh/n2n2 ubuntu@tribes.n2n2.chat
+ssh -i ~/.ssh/n2n2 ubuntu@communities.n2n2.chat
 ```
 
 ### Bash

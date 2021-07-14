@@ -64,13 +64,6 @@ services:
       - "traefik.http.routers.tribes.entrypoints=web"
       - "traefik.http.services.tribes.loadbalancer.server.port=$PORT"
 
-      # - "traefik.http.routers.tribes.rule=Host(`tribes.n2n2.chat`)"
-      # - "traefik.http.routers.tribes.entrypoints=web"
-      # - "traefik.http.services.tribes.loadbalancer.server.port=5000"
-      # - "traefik.http.routers.tribes.tls=false"
-      # - "traefik.http.routers.tribes.tls.certresolver=myresolver"
-      # - "traefik.http.routers.tribes.entrypoints=websecure"
-
       - "traefik.tcp.routers.tribes.rule=HostSNI(`*`)"
       - "traefik.tcp.routers.tribes.entrypoints=mqttsecure"
       - "traefik.tcp.services.tribes.loadbalancer.server.port=1883"
