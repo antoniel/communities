@@ -1,4 +1,4 @@
-module github.com/n2n2dev/n2n2-tribes
+module github.com/getzion/communities
 
 go 1.12
 

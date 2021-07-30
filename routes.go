@@ -12,7 +12,7 @@ import (
 	"github.com/go-chi/chi/middleware"
 	"github.com/rs/cors"
 
-	"github.com/n2n2dev/n2n2-tribes/frontend"
+	"github.com/getzion/communities/frontend"
 )
 
 // NewRouter creates a chi router
