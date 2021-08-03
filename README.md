@@ -1,6 +1,4 @@
-# zion-communties
-
-This is a forked code from the Sphinx protocal. 
+# zion-communities
 
 Decentralized message broker for public groups in ZION. Anyone can run a ZION-Community server, to route group messages.
 
