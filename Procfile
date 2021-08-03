@@ -1,1 +1,1 @@
-web: n2n2-tribes
+web: zion-communities

@@ -33,12 +33,12 @@ services:
         hard: 1000000
 
   auth:
-    image: sphinx-auth
+    image: zion-auth
     depends_on:
       - reverse-proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.auth.rule=Host(`auth.sphinx.chat`)"
+      - "traefik.http.routers.auth.rule=Host(`auth.getzion.com`)"
       - "traefik.http.services.auth.loadbalancer.server.port=9090"
       - "traefik.http.routers.auth.tls=true"
       - "traefik.http.routers.auth.tls.certresolver=myresolver"
@@ -49,25 +49,25 @@ services:
       - CLIENT_KEYS=$CLIENT_KEYS
       - OAUTH_TIMEOUT=$OAUTH_TIMEOUT
 
-  tribes:
-    image: n2n2-tribes
+  communities:
+    image: zion-communities
     depends_on:
       - auth
       - reverse-proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.tribes.rule=Host(`tribes.sphinx.chat`)"
-      - "traefik.http.services.tribes.loadbalancer.server.port=5002"
-      - "traefik.http.routers.tribes.tls=true"
-      - "traefik.http.routers.tribes.tls.certresolver=myresolver"
-      - "traefik.http.routers.tribes.entrypoints=websecure"
+      - "traefik.http.routers.communities.rule=Host(`communities.getzion.com`)"
+      - "traefik.http.services.communities.loadbalancer.server.port=5002"
+      - "traefik.http.routers.communities.tls=true"
+      - "traefik.http.routers.communities.tls.certresolver=myresolver"
+      - "traefik.http.routers.communities.entrypoints=websecure"
       
-      - "traefik.tcp.routers.tribes.rule=HostSNI(`tribes.sphinx.chat`)"
-      - "traefik.tcp.services.tribes.loadbalancer.server.port=1883"
-      - "traefik.tcp.routers.tribes.tls=true"
-      - "traefik.tcp.routers.tribes.tls.certresolver=myresolver"
-      - "traefik.tcp.routers.tribes.entrypoints=mqttsecure"
-      - "traefik.tcp.routers.tribes.service=tribes"
+      - "traefik.tcp.routers.communities.rule=HostSNI(`communities.getzion.com`)"
+      - "traefik.tcp.services.communities.loadbalancer.server.port=1883"
+      - "traefik.tcp.routers.communities.tls=true"
+      - "traefik.tcp.routers.communities.tls.certresolver=myresolver"
+      - "traefik.tcp.routers.communities.entrypoints=mqttsecure"
+      - "traefik.tcp.routers.communities.service=communities"
     restart: on-failure
     environment:
       - RDS_HOSTNAME=$RDS_HOSTNAME

@@ -151,9 +151,9 @@
 
 ###
 
-- name: Mkdir n2n2 client path dir
+- name: Mkdir ZION client path dir
   file:
-    path: "{{ n2n2_path }}"
+    path: "{{ zion_path }}"
     state: directory
     owner: ubuntu
   become: true
@@ -201,7 +201,7 @@
   git: >
     repo=git@github.com:getzion/communities.git
     key_file=/root/.ssh/id_rsa.github
-    dest={{ n2n2_path }}
+    dest={{ zion_path }}
     version={{ git_branch }}
     force=yes
     update=yes
@@ -212,7 +212,7 @@
   git: >
     repo=git@github.com:getzion/communities.git
     key_file=/root/.ssh/id_rsa.github
-    dest={{ n2n2_path }}
+    dest={{ zion_path }}
     version={{ git_branch_staging }}
     force=yes
     update=yes
@@ -220,5 +220,5 @@
   when: hostvars[inventory_hostname].testnet
 
 - name: Start container
-  shell: "cd {{ n2n2_path }} && docker-compose up -d"
+  shell: "cd {{ zion_path }} && docker-compose up -d"
   become: yes

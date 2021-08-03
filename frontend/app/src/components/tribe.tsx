@@ -5,7 +5,7 @@ import { EuiCheckableCard } from "@elastic/eui";
 import Tag from "./tag";
 import moment from "moment";
 
-const DEFAULT_DOMAIN = "n2n2.chat";
+const DEFAULT_DOMAIN = "getzion.com";
 
 function makeQR(uuid: string) {
   return `${DEFAULT_DOMAIN}://?action=tribe&uuid=${uuid}&host=${window.location.hostname}`;

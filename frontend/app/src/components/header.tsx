@@ -59,7 +59,7 @@ export default function Header() {
               className="col-xs-12 col-sm-12 col-md-6 col-lg-6"
             >
               {/* <img id="logo" src="static/tribes_logo.svg" alt="Logo"/> */}
-              <Title>Tribes</Title>
+              <Title>Communities</Title>
             </EuiHeaderSection>
 
             <EuiHeaderSection
@@ -71,7 +71,7 @@ export default function Header() {
               <div>
                 <EuiFieldSearch
                   id="search-input"
-                  placeholder="Search Tribes"
+                  placeholder="Search Communities"
                   value={ui.searchText}
                   onChange={(e) => ui.setSearchText(e.target.value)}
                   // isClearable={this.state.isClearable}

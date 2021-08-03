@@ -7,7 +7,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "bash")            
-            cmd="docker exec -it tribes ssh"
+            cmd="docker exec -it communities ssh"
             echo $cmd
             $cmd
             ;;

@@ -22,10 +22,10 @@ locals {
 terraform {
   # terraform state storage
   backend "s3" {
-    bucket         = "n2n2-terra-state"
-    key            = "apps/n2n2-tribes/terraform.tfstate"
+    bucket         = "zion-terra-state"
+    key            = "apps/zion-communities/terraform.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "n2n2-terra-state"
+    dynamodb_table = "zion-terra-state"
   }
 
   required_providers {

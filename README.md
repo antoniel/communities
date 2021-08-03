@@ -1,10 +1,10 @@
-# n2n2-communties
+# zion-communties
 
 This is a forked code from the Sphinx protocal. 
 
-Decentralized message broker for public groups in N2N2. Anyone can run a N2N2-Community server, to route group messages.
+Decentralized message broker for public groups in ZION. Anyone can run a ZION-Community server, to route group messages.
 
-N2N2-Community clients can be N2N2-relay nodes. 
+ZION-Community clients can be ZION-relay nodes. 
 
 
 [How To Deploy](ops/ansible/README.md)
@@ -18,9 +18,8 @@ npm run build
 
 ## Bash
 ```
-ssh -i ~/.ssh/n2n2 ubuntu@tribes-staging.n2n2.chat
-ssh -i ~/.ssh/n2n2 ubuntu@tribes.n2n2.chat
-ssh -i ~/.ssh/n2n2 ubuntu@communities.n2n2.chat
+ssh -i ~/.ssh/zion ubuntu@communities.getzion.com
+ssh -i ~/.ssh/zion ubuntu@communities.getzion.com
 sudo -s
 docker exec -it $(docker ps --latest --quiet) bash
 ```
@@ -44,5 +43,5 @@ base64 n2n2-0
 base64 -d n2n2-0.encoded 
 ```
 
-[Tribes](doc/tribes.md)
+[Communities](doc/tribes.md)
 

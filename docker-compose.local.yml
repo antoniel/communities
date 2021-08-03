@@ -52,24 +52,24 @@ services:
   #     - CLIENT_KEYS=$CLIENT_KEYS
   #     - OAUTH_TIMEOUT=$OAUTH_TIMEOUT
 
-  tribes:
-    # image: n2n2-tribes
+  communities:
+    # image: zion-communities
     build: .
     depends_on:
       # - auth
       - reverse-proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.tribes.rule=Host(`127.0.0.1`)"
-      - "traefik.http.routers.tribes.entrypoints=web"
-      - "traefik.http.services.tribes.loadbalancer.server.port=$PORT"
+      - "traefik.http.routers.communities.rule=Host(`127.0.0.1`)"
+      - "traefik.http.routers.communities.entrypoints=web"
+      - "traefik.http.services.communities.loadbalancer.server.port=$PORT"
 
-      - "traefik.tcp.routers.tribes.rule=HostSNI(`*`)"
-      - "traefik.tcp.routers.tribes.entrypoints=mqttsecure"
-      - "traefik.tcp.services.tribes.loadbalancer.server.port=1883"
-      # - "traefik.tcp.routers.tribes.tls=false"
-      # # - "traefik.tcp.routers.tribes.tls.certresolver=myresolver"
-      - "traefik.tcp.routers.tribes.service=tribes"
+      - "traefik.tcp.routers.communities.rule=HostSNI(`*`)"
+      - "traefik.tcp.routers.communities.entrypoints=mqttsecure"
+      - "traefik.tcp.services.communities.loadbalancer.server.port=1883"
+      # - "traefik.tcp.routers.communities.tls=false"
+      # # - "traefik.tcp.routers.communities.tls.certresolver=myresolver"
+      - "traefik.tcp.routers.communities.service=communities"
     restart: on-failure
     environment:
       - PORT=$PORT

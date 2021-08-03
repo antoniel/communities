@@ -8,7 +8,7 @@ brew install hivemq/mqtt-cli/mqtt-cli
 
 ```
 mqtt test -h 0.0.0.0 -p 1883
-mqtt test -h tribes.n2n2.chat -p 8883
+mqtt test -h communities.getzion.com -p 8883
 ```
 
 ## Resources

@@ -1,9 +1,7 @@
-# n2n2-tribes
+# zion-communities
 
 ```
-ssh -i ~/.ssh/n2n2 ubuntu@tribes-staging.n2n2.chat
-ssh -i ~/.ssh/n2n2 ubuntu@tribes.n2n2.chat
-ssh -i ~/.ssh/n2n2 ubuntu@communities.n2n2.chat
+ssh -i ~/.ssh/zion ubuntu@communities.getzion.com
 ```
 
 ### Bash

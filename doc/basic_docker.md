@@ -2,8 +2,8 @@
 # Docker Operations
 ### local
 ```
-docker build -t n2n2-tribes .
-docker run -p 5000:5000 --env-file .env n2n2-tribes
+docker build -t zion-communities .
+docker run -p 5000:5000 --env-file .env zion-communties
 docker exec -it “container-id” bash
 ```
 

@@ -37,7 +37,7 @@
 - name: Retrieve the Records First
   route53:
     state: get
-    zone: n2n2.chat
+    zone: getzion.com
     record: "{{ config.instance_name }}"
     type: A
   register: rec
@@ -48,7 +48,7 @@
 - name: Route 53 Delete Records
   route53:
     state: absent
-    zone: n2n2.chat
+    zone: getzion.com
     record: "{{ config.instance_name }}"
     type: "{{ rec.set.Type }}"
     ttl: "{{ rec.set.TTL }}"
