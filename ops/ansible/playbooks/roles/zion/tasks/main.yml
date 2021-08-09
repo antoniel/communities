@@ -59,6 +59,15 @@
     line: "CF_ZONE_API_TOKEN={{ cloudflare_api_token }}"
   become: yes
 
+- name: Set CF_API_KEY
+  lineinfile:
+    dest: /etc/environment
+    create: yes
+    state: present
+    regexp: "^CF_API_KEY"
+    line: "CF_API_KEY={{ cloudflare_api_key }}"
+  become: yes
+
 - name: Set PORT
   lineinfile:
     dest: /etc/environment
