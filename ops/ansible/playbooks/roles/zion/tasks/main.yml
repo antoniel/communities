@@ -77,6 +77,24 @@
     line: "CLOUDFLARE_API_KEY={{ cloudflare_api_key }}"
   become: yes
 
+- name: Set CLOUDFLARE_DNS_API_TOKEN
+  lineinfile:
+    dest: /etc/environment
+    create: yes
+    state: present
+    regexp: "^CLOUDFLARE_DNS_API_TOKEN"
+    line: "CLOUDFLARE_DNS_API_TOKEN={{ cloudflare_dns_api_token }}"
+  become: yes
+
+- name: Set CLOUDFLARE_ZONE_API_TOKEN
+  lineinfile:
+    dest: /etc/environment
+    create: yes
+    state: present
+    regexp: "^CLOUDFLARE_ZONE_API_TOKEN"
+    line: "CLOUDFLARE_ZONE_API_TOKEN={{ cloudflare_zone_api_token }}"
+  become: yes
+
 - name: Set CF_API_EMAIL
   lineinfile:
     dest: /etc/environment
@@ -95,15 +113,23 @@
     line: "CF_API_KEY={{ cloudflare_api_key }}"
   become: yes
 
-# - name: Set CLOUDFLARE_DNS_API_TOKEN
-#   lineinfile:
-#     dest: /etc/environment
-#     create: yes
-#     state: present
-#     regexp: "^CLOUDFLARE_DNS_API_TOKEN"
-#     line: "CLOUDFLARE_DNS_API_TOKEN={{ cloudflare_dns_api_token }}"
-#   become: yes
+- name: Set CF_DNS_API_TOKEN
+  lineinfile:
+    dest: /etc/environment
+    create: yes
+    state: present
+    regexp: "^CF_DNS_API_TOKEN"
+    line: "CF_DNS_API_TOKEN={{ cloudflare_dns_api_token }}"
+  become: yes
 
+- name: Set CF_ZONE_API_TOKEN
+  lineinfile:
+    dest: /etc/environment
+    create: yes
+    state: present
+    regexp: "^CF_ZONE_API_TOKEN"
+    line: "CF_ZONE_API_TOKEN={{ cloudflare_zone_api_token }}"
+  become: yes
 
 - name: Set PORT
   lineinfile:
