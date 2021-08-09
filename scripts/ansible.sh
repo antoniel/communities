@@ -3,17 +3,11 @@
 
 function_menu_ssh () {
   PS3='Please enter your choice: '
-    options=("communities" "tribes" "quit")
+    options=("communities" "quit")
     select opt in "${options[@]}"
     do
         case $opt in
             "communities")
-                cmd="ssh -i ~/.ssh/zion ubuntu@communities.getzion.com"
-                echo $cmd
-                $cmd      
-                ;;
-
-            "tribes")
                 cmd="ssh -i ~/.ssh/zion ubuntu@communities.getzion.com"
                 echo $cmd
                 $cmd      

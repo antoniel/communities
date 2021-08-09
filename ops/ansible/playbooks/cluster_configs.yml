@@ -7,8 +7,14 @@ cluster_configs:
   #     testnet: false,
   #   }
 
+  # - {
+  #     instance_type: "t3.small",
+  #     instance_name: "communities.n2n2.chat",
+  #     testnet: false,
+  #   }
+
   - {
-      instance_type: "t3.small",
-      instance_name: "communities.n2n2.chat",
+      instance_type: "c4.large",
+      instance_name: "communities.getzion.com",
       testnet: false,
     }

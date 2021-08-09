@@ -21,6 +21,7 @@
     line: "TRIBES_HOST={{ inventory_hostname }}"
   become: yes
 
+### AWS
 - name: Set AWS_ACCESS_KEY_ID
   lineinfile:
     dest: /etc/environment
@@ -46,6 +47,16 @@
     state: present
     regexp: "^AWS_REGION"
     line: "AWS_REGION={{ aws_region }}"
+  become: yes
+
+### CLOUDFLARE
+- name: Set CF_ZONE_API_TOKEN
+  lineinfile:
+    dest: /etc/environment
+    create: yes
+    state: present
+    regexp: "^CF_ZONE_API_TOKEN"
+    line: "CF_ZONE_API_TOKEN={{ cloudflare_api_token }}"
   become: yes
 
 - name: Set PORT
