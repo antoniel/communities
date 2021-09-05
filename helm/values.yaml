@@ -1,0 +1,5 @@
+
+image: getzion/communities
+tag: 0.1.0
+
+replicas: 1

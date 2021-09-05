@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: communities-config
+data:
+  # copied from docker-compose
+  # need to be filled with real values
+  TRIBES_HOST: $TRIBES_HOST
+  PORT: $PORT
+  RDS_HOSTNAME: $RDS_HOSTNAME
+  RDS_PORT: $RDS_PORT
+  RDS_DB_NAME: $RDS_DB_NAME
+  RDS_USERNAME: $RDS_USERNAME
+  RDS_PASSWORD: $RDS_PASSWORD
+  JWT_KEY: $JWT_KEY
+  PRIV_KEY: $PRIV_KEY
+  PODCAST_INDEX_KEY: $PODCAST_INDEX_KEY
+  PODCAST_INDEX_SECRET: $PODCAST_INDEX_SECRET
