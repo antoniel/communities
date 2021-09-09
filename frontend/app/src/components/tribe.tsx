@@ -5,10 +5,10 @@ import { EuiCheckableCard } from "@elastic/eui";
 import Tag from "./tag";
 import moment from "moment";
 
-const DEFAULT_DOMAIN = "getzion.com";
+const DEFAULT_DOMAIN_BUNDLE_URL = "zion.chat";
 
 function makeQR(uuid: string) {
-  return `${DEFAULT_DOMAIN}://?action=tribe&uuid=${uuid}&host=${window.location.hostname}`;
+  return `${DEFAULT_DOMAIN_BUNDLE_URL }://?action=tribe&uuid=${uuid}&host=${window.location.hostname}`;
 }
 
 export default function Tribe({
